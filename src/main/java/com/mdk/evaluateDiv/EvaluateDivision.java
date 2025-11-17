@@ -1,4 +1,4 @@
-package com.mdk;
+package com.mdk.evaluateDiv;
 
 import lombok.AllArgsConstructor;
 
