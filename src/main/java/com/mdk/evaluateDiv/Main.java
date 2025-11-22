@@ -4,6 +4,26 @@ import java.util.*;
 
 
 public class Main {
+
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int i = 0; i < nums.length; i++) {
+            int reste = target - nums[i];
+            if(map.containsKey(reste)) {
+                result[0] = map.get(reste);
+                result[1] = i;
+                return result;
+            }
+            else {
+                map.put(nums[i], i);
+            }
+        }
+        return result;
+    }
+
+
+
     public static void main(String[] args) {
 
         List<List<String>> equations = new ArrayList<>(new ArrayList<>());
