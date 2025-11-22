@@ -22,9 +22,37 @@ public class Main {
         return result;
     }
 
+    public static int removeElement(int[] nums, int val) {
+        int i = 0;
+        int j = nums.length - 1;
+        int k = 0;
+        while(i<=j) {
+            if(nums[i] == val) {
+                if (nums[j] == val) {
+                    j--;
+                }
+                else {
+                    k++;
+                    nums[i] = nums[j];
+                    nums[j] = val;
+                    i++;
+                    j--;
+                }
+            }
+            else {
+                k++;
+                i++;
+            }
+        }
+        return k;
+    }
+
 
 
     public static void main(String[] args) {
+
+        int[] nums = new int[] {0,1,2,2,3,0,4,2};
+        int k = removeElement(nums, 2);
 
         List<List<String>> equations = new ArrayList<>(new ArrayList<>());
         List<Double> values = new ArrayList<>();
