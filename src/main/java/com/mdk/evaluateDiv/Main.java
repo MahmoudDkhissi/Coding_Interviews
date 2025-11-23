@@ -22,6 +22,8 @@ public class Main {
         return result;
     }
 
+
+
     public static int removeElement(int[] nums, int val) {
         int i = 0;
         int j = nums.length - 1;
@@ -47,13 +49,24 @@ public class Main {
         return k;
     }
 
-
+    public int removeDuplicates(int[] nums) {
+        int i = 0;
+        int j = 1;
+        int n = nums.length;
+        while(j<n) {
+            if (nums[i] == nums[j]) {
+                j++;
+            }
+            else {
+                nums[i+1] = nums[j];
+                i++;
+                j++;
+            }
+        }
+        return i+1;
+    }
 
     public static void main(String[] args) {
-
-        int[] nums = new int[] {0,1,2,2,3,0,4,2};
-        int k = removeElement(nums, 2);
-
         List<List<String>> equations = new ArrayList<>(new ArrayList<>());
         List<Double> values = new ArrayList<>();
         List<List<String>> queries = new ArrayList<>();
