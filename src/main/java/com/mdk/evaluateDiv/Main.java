@@ -66,6 +66,70 @@ public class Main {
         return i+1;
     }
 
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) {
+                nums1[k] = nums1[i];
+                i--;
+            }
+            else {
+                nums1[k] = nums2[j];
+                j--;
+            }
+            k--;
+        }
+        while (i >= 0) {
+            nums1[k] = nums1[i];
+            i--;
+            k--;
+        }
+        while (j >= 0) {
+            nums1[k] = nums2[j];
+            j--;
+            k--;
+        }
+    }
+
+    public int majorityElementMoyerBoore(int[] nums) {
+        int counter = 0;
+        int majority = nums[0];
+        for (int num : nums) {
+            if (counter == 0) {
+                majority = num;
+                counter = 1;
+            }
+            else if (num == majority) {
+                counter++;
+            }
+            else {
+                counter--;
+            }
+        }
+        return majority;
+    }
+
+
+        //other version different from boyer-moore majority vote algorithm
+    public int majorityElement(int[] nums) {
+        int n = nums.length/2;
+        Map<Integer, Integer>  map = new HashMap<>();
+        for (int num : nums) {
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
+                if (map.get(num) > n) {
+                    return num;
+                }
+            }
+            else {
+                map.put(num, 1);
+            }
+        }
+        return nums[0];
+    }
+
     public static void main(String[] args) {
         List<List<String>> equations = new ArrayList<>(new ArrayList<>());
         List<Double> values = new ArrayList<>();
