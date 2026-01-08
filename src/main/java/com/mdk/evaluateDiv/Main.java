@@ -154,6 +154,20 @@ public class Main {
         return result;
     }
 
+    public boolean hasDuplicate(int[] nums) {
+        Set<Integer> elements = new HashSet<>();
+        for (int num : nums) {
+            if (elements.contains(num)) {
+                return true;
+            }
+            else {
+                elements.add(num);
+            }
+        }
+        return false;
+    }
+
+
     public static void main(String[] args) {
         List<List<String>> equations = new ArrayList<>(new ArrayList<>());
         List<Double> values = new ArrayList<>();
