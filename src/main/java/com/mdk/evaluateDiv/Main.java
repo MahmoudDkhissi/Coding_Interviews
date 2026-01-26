@@ -167,6 +167,27 @@ public class Main {
         return false;
     }
 
+    /**
+     * Determines whether two strings are anagrams of each other.
+     * An anagram is a word or phrase formed by rearranging the letters of another,
+     * using all the original letters exactly once.
+     *
+     * @param s the first string to be compared
+     * @param t the second string to be compared
+     * @return {@code true} if the two strings are anagrams, {@code false} otherwise
+     */
+    public boolean isAnagram(String s, String t) {
+        Map<Character, Integer> map_s = new HashMap<>();
+        Map<Character, Integer> map_t = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            map_s.put(s.charAt(i), map_s.getOrDefault(s.charAt(i), 0) + 1);
+        }
+        for (int i = 0; i < t.length(); i++) {
+            map_t.put(t.charAt(i), map_t.getOrDefault(t.charAt(i), 0) + 1);
+        }
+        return map_s.equals(map_t);
+    }
+
 
     public static void main(String[] args) {
         List<List<String>> equations = new ArrayList<>(new ArrayList<>());
