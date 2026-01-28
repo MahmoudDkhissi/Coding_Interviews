@@ -218,6 +218,32 @@ public class Main {
         return true;
     }
 
+    /**
+     * Searches for a target value in a sorted integer array using the binary search algorithm.
+     * If the target is found, its index is returned. If the target is not found, returns -1.
+     *
+     * @param nums the sorted array of integers to search within
+     * @param target the integer value to search for
+     * @return the index of the target value in the array if found; otherwise, -1
+     */
+    public int search(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            }
+            else if (nums[mid] < target) {
+                left = mid + 1;
+            }
+            else {
+                right = mid - 1;
+            }
+        }
+        return -1;
+    }
+
 
     public static void main(String[] args) {
         List<List<String>> equations = new ArrayList<>(new ArrayList<>());
