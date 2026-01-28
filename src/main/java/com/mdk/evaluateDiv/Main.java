@@ -189,6 +189,36 @@ public class Main {
     }
 
 
+    /**
+     * Determines whether the given string is a palindrome, considering only alphanumeric characters
+     * and ignoring cases. A palindrome is a word, phrase, or sequence that reads the same backward
+     * as forward after removing non-alphanumeric characters and normalizing letter case.
+     *
+     * @param s the input string to be checked for being a palindrome
+     * @return {@code true} if the input string is a palindrome, {@code false} otherwise
+     */
+    public boolean isPalindrome(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            if (!Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
+            }
+            else if (!Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
+            }
+            else if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+                return false;
+            }
+            else {
+                left++;
+                right--;
+            }
+        }
+        return true;
+    }
+
+
     public static void main(String[] args) {
         List<List<String>> equations = new ArrayList<>(new ArrayList<>());
         List<Double> values = new ArrayList<>();
